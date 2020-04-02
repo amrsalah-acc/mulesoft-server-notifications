@@ -24,5 +24,9 @@ http://www.mulesoft.org/schema/mule/spring http://www.mulesoft.org/schema/mule/s
   		<notification event="MESSAGE-PROCESSOR"/>
   		<notification-listener ref="muleMessageListener"/>
   	</notifications>
+	<notifications>
+  		<notification event="EXCEPTION"/>
+  		<notification-listener ref="muleExceptionListener"/>
+  	</notifications>
 
 </mule>

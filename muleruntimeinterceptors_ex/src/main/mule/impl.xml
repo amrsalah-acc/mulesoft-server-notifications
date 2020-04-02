@@ -48,4 +48,8 @@ payload ++ {"status": vars.status}]]></ee:set-payload>
 		<http:listener doc:name="/payment" doc:id="bf5b5c5f-9afc-440c-b1eb-53382f90653e" config-ref="HTTP_Listener_config" path="/v1/payment" />
 		<logger level="INFO" doc:name="Log_CorrelationId" doc:id="4bbb8144-d431-4b52-997e-1481a0ae4b94" message="#[correlationId]" category="pipeline_payment_example.correlationId" />
 	</flow>
+	<flow name="pipeline_throw_exception" doc:id="5e619a95-efe4-46ca-8fca-f87bd0c5f70f" >
+		<http:listener doc:name="throwException" doc:id="45ccda67-abf3-47bc-bcb3-e54a9a414fda" config-ref="HTTP_Listener_config" path="/v1/throwException"/>
+		<raise-error doc:name="Raise error" doc:id="a7ded9b5-38d3-4118-a707-3b7666bce3e2" type="SERVER_RUNTIME:EXCEPTION_NOTIFICATION_DEMO" description="This is a server error demostration for server notification"/>
+	</flow>
 </mule>
